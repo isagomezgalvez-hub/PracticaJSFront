@@ -12,9 +12,9 @@ export default {
 			const data = await response.json()
 			return data.map(product => {
 				return {
-					nombre: product.nombre,
+					nombre: product.nombre.replace(/(<([^>]+)>)/gi, ""),
 					precio: product.precio,
-					descripcion: product.descripcion,
+					descripcion: product.descripcion.replace(/(<([^>]+)>)/gi, ""),
 					venta: product.venta,
 					tags: product.tags,
 					author: product.user.username,

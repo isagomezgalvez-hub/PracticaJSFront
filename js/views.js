@@ -1,11 +1,10 @@
 
 export const ProductsView = (product) => {
+  //TO-DO pasar la variable para obtener fecha en el controlador
   const date = new Date(`${product.date}`)
   const dateProduct = (new Intl.DateTimeFormat('es-ES').format(date));
 
-  return `
-	<div class="column">
-	<div class="card-product">
+  return `<div class="card-product">
 	<div class="card">
   <div class="card-image">
     <figure class="image is-4by3">
@@ -33,7 +32,7 @@ export const ProductsView = (product) => {
   </footer>
   </div>
 </div>
-</div>
+
 `;
 };
 
