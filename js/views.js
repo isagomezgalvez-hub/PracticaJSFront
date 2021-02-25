@@ -1,4 +1,7 @@
+
 export const ProductsView = (product) => {
+  const date = new Date(`${product.date}`)
+  const dateProduct = (new Intl.DateTimeFormat('es-ES').format(date));
 
   return `
 	<div class="column">
@@ -19,10 +22,12 @@ export const ProductsView = (product) => {
     <div class="content">
       ${product.descripcion}
       <br>
-      <time datetime="2016-1-1"> ${product.tags}</time>
+      <time datetime="2016-1-1">${dateProduct}</time>
+      <p> ${product.tags}</p>
     </div>
 </div>
 	<footer class="card-footer">
+  
     <a href="#" class="card-footer-item">Save</a>
     <a href="#" class="card-footer-item">Edit</a>
   </footer>

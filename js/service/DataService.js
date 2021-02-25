@@ -6,7 +6,7 @@ const TOKEN_KEY = 'token';
 export default {
 
 	getProducts: async function () {
-		const url = `${BASE_URL}/api/anuncios?_expand=user`
+		const url = `${BASE_URL}/api/anuncios?_expand=user&_sort=id&_order=desc`
 		const response = await fetch(url);
 		if (response.ok) {
 			const data = await response.json()
@@ -18,6 +18,7 @@ export default {
 					venta: product.venta,
 					tags: product.tags,
 					author: product.user.username,
+					date: product.createdAt || product.updatedAt
 				}
 			})
 		} else {
@@ -31,6 +32,10 @@ export default {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(postData),
 		};
+		const token = await this.getToken();
+		if (token) {
+			config.headers['Authorization'] = `Bearer ${token}`
+		}
 		const response = await fetch(url, config)
 		const data = await response.json()
 		if (response.ok) {
@@ -61,6 +66,10 @@ export default {
 	isUserLogged: async function () {
 		const token = await this.getToken();
 		return token !== null;
+	},
+	saveProduct: async function (product) {
+		const url = `${BASE_URL}/api/anuncios`;
+		return await this.post(url, product);
 	}
 
 }
