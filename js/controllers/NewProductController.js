@@ -11,7 +11,7 @@ export default class NewProductController extends BaseController {
 	async checkIfUserIsLogged() {
 		const userIsLogged = await DataService.isUserLogged();
 		if (!userIsLogged) {
-			window.location.href = "/login.html"
+			window.location.href = "/login.html?next=/new-product.html"
 		} else {
 			this.publish(this.events.FINISH_LOADING);
 		}
@@ -46,13 +46,23 @@ export default class NewProductController extends BaseController {
 
 		this.element.addEventListener('submit', async (event) => {
 			event.preventDefault();
+
 			const product = {
+				image: null,
 				nombre: this.element.elements.name.value,
 				precio: this.element.elements.price.value,
-				tags: this.element.elements.tags.value,
-				descripcion: this.element.elements.description.value
-
+				descripcion: null,
 			}
+			if (this.element.elements.file.files.length > 0) {
+				product.image = this.element.elements.file.files[0];
+			}
+
+			if (this.element.elements.description.value === null) {
+				product.descripcion = ' '
+			} else {
+				product.descripcion = this.element.elements.description.value.replace(/(<([^>]+)>)/gi, "")
+			}
+
 
 			this.publish(this.events.START_LOADING)
 			try {

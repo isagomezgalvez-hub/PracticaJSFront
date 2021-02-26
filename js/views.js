@@ -1,5 +1,13 @@
 
 export const ProductsView = (product) => {
+  let imgHTML = '';
+  if (product.image) {
+    imgHTML = `<figure class="image is-4by3">
+   
+      <img src="${product.image}" alt="Placeholder image">
+    </figure>`
+  }
+
   //TO-DO pasar la variable para obtener fecha en el controlador
   const date = new Date(`${product.date}`)
   const dateProduct = (new Intl.DateTimeFormat('es-ES').format(date));
@@ -7,9 +15,8 @@ export const ProductsView = (product) => {
   return `<div class="card-product">
 	<div class="card">
   <div class="card-image">
-    <figure class="image is-4by3">
-      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-    </figure>
+    ${imgHTML}
+    
   </div>
   <div class="card-content">
     <div class="media">
@@ -22,7 +29,7 @@ export const ProductsView = (product) => {
       ${product.descripcion}
       <br>
       <time datetime="2016-1-1">${dateProduct}</time>
-      <p> ${product.tags}</p>
+   
     </div>
 </div>
 	<footer class="card-footer">
