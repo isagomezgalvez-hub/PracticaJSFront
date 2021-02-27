@@ -62,7 +62,9 @@
 .article-image{
   padding-bottom: 2rem;
 }
-
+.title-details .title.is-2{
+  margin-bottom: 0.5rem;
+}
 .tipo{
   background-color: #00d1b2;
     border-color: transparent;

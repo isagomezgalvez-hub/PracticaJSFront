@@ -94,15 +94,25 @@ export const ProductDetails = (product) => {
 							<img src="${product[0].image}" frameborder="0" allowfullscreen>
 						</figure>
 					</div>
-
-					<h2 class="title is-2">${product[0].precio}<span>€</span></h2>
-					<h3 class="title is-3">${product[0].nombre}</h3>
+					<div class="columns">
+					<div class="column">
+						<div class="title-details">
+							<h2 class="title is-2">${product[0].precio}<span>€</span></h2>
+							<h3 class="title is-3">${product[0].nombre}</h3>
+						</div>
+					</div>
+					<div class="column has-text-right">
+						<button class="button is-primary">${product[0].tipoAnuncio}</button>
+						
+					
+					</div>
+					</div>
 					<p>${product[0].descripcion}</p>
 
 					<hr>
 					<div class="columns">
 						<div class="column">
-							<time>${product.date}</time>
+							<time>${product[0].date}</time>
 						</div>
 						<div class="column has-text-right">
 							<span class="icon">
