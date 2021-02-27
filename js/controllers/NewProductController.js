@@ -50,9 +50,11 @@ export default class NewProductController extends BaseController {
 			const product = {
 				image: null,
 				nombre: this.element.elements.name.value,
+				tipoAnuncio: this.element.elements.tipo.value,
 				precio: this.element.elements.price.value,
 				descripcion: null,
 			}
+
 			if (this.element.elements.file.files.length > 0) {
 				product.image = this.element.elements.file.files[0];
 			}

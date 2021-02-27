@@ -11,8 +11,9 @@ export default class ProductsListController extends BaseController {
 			const article = document.createElement('article');
 			article.innerHTML = ProductsView(product);
 			article.addEventListener('click', (event) => {
-				/* window.location.href = '?next=/product.html'; */
+
 				window.location.href = `product.html?id=${product.id}`
+
 			})
 			this.element.appendChild(article);
 		}

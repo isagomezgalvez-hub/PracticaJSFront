@@ -63,6 +63,21 @@
   padding-bottom: 2rem;
 }
 
+.tipo{
+  background-color: #00d1b2;
+    border-color: transparent;
+    box-shadow: none;
+    color:white;
+    justify-content: center;
+    padding-bottom: .1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 0.3rem;
+    padding-top: .1em;
+    text-align: center;
+    white-space: nowrap;
+}
+
 
 
 

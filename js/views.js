@@ -26,18 +26,18 @@ export const ProductsView = (product) => {
         <p class="title is-4">${product.precio}€</p>
         <p class="subtitle is-6">${product.nombre}</p>
       </div>
+	 <div class="tipo">${product.tipoAnuncio}</div>
     </div>
+
     <div class="content">
       ${product.descripcion}
       <br>
       <time datetime="2016-1-1">${dateProduct}</time>
+	 
    
     </div>
 </div>
-	<footer class="card-footer">
-    <a href="#" class="card-footer-item">Editar</a>
-    <a href="#" class="card-footer-item">Borrar</a>
-  </footer>
+	
   </div>
 </div>
 
