@@ -11,9 +11,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	const errorElement = document.querySelector('.global-error')
 	const errorController = new ErrorController(errorElement);
 
-	const warningElement = document.querySelector('.warning')
-	const warningController = new WarningController(warningElement);
-
 	const successElement = document.querySelector('.user-success')
 	const successController = new SuccessController(successElement);
 

@@ -20,6 +20,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	const errorElement = document.querySelector('.global-error')
 	const errorController = new ErrorController(errorElement);
 
+
 	const newProductButtons = document.querySelector('.new-product')
 	const newProductController = new LoginOrRegisterController(newProductButtons);
 

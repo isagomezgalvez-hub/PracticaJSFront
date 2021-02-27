@@ -57,11 +57,16 @@ export const ErrorView = (errorMesagge) => {
 		</article>`
 };
 
-export const Warning = () => {
-	return `<div class="notification is-warning is-light">
-  <button class="delete"></button>
-  <strong>Atención:</strong> La contraseña debe contener al menos 6 carácteres, además debe contener Mayúsculas/minúsculas y números
-  </div>`
+export const RemoveProductMesagge = () => {
+	return `<article class="message is-success" >
+			<div class="message-header">
+				<p>Enhorabuena</p>
+				<button class="delete" aria-label="delete"></button>
+			</div>
+			<div class="message-body">
+			¡Producto eliminado con exito!
+			</div>
+		</article>`
 };
 
 export const UserSuccess = () => {

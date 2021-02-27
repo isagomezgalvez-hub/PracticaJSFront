@@ -1,6 +1,9 @@
 import LoaderController from './controllers/LoaderController.js';
 import ErrorController from './controllers/ErrorController.js';
+import RemoveProductMesaggeController from './controllers/RemoveProductMesaggeController.js'
 import ProductController from './controllers/ProductController.js';
+
+
 
 window.addEventListener('DOMContentLoaded', () => {
 	const loader = document.querySelector('.lds-ring');
@@ -8,6 +11,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	const errorElement = document.querySelector('.global-error')
 	new ErrorController(errorElement);
+
+	const removeElement = document.querySelector('.global-error')
+	new RemoveProductMesaggeController(errorElement);
 
 	const productElement = document.querySelector('.products-details')
 	const detailsController = new ProductController(productElement)

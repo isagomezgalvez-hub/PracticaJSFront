@@ -13,7 +13,9 @@ export default class DeleteButtonController extends BaseController {
 
 				await DataService.deleteProduct(product);
 				this.publish(this.events.PRODUCT_DELETED, product);
-				window.location.href = "/"
+				setTimeout(() => {
+					window.location.href = "/"
+				}, 500)
 
 			}
 		})
