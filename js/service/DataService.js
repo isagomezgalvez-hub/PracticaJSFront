@@ -18,6 +18,7 @@ export default {
 					descripcion: product.descripcion,
 					venta: product.venta,
 					author: product.user.username,
+					id: product.id,
 					date: product.createdAt || product.updatedAt
 				}
 			})
@@ -91,6 +92,30 @@ export default {
 		console.log('UPLOAD IMAGE', response)
 		return response.path || null;
 
-	}
+	},
 
+	getProductsDetails: async function (product) {
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		const id = urlParams.get('id');
+
+		const url = `${BASE_URL}/api/anuncios?id=${id}`
+
+		const response = await fetch(url);
+		if (response.ok) {
+			const data = await response.json()
+			return data.map(product => {
+				return {
+					image: product.image || null,
+					nombre: product.nombre,
+					precio: product.precio,
+					descripcion: product.descripcion,
+					venta: product.venta,
+					date: product.createdAt || product.updatedAt
+				}
+			})
+		} else {
+			throw new Error(`HTTP Error: ${response.status}`)
+		}
+	}
 }

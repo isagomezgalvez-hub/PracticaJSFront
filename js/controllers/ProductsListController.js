@@ -1,7 +1,8 @@
 import BaseController from './BaseController.js';
 
+import ProductController from './ProductController.js'
 import DataService from '../service/DataService.js';
-import { ProductsView } from '../views.js';
+import { ProductDetails, ProductsView } from '../views.js';
 
 export default class ProductsListController extends BaseController {
 
@@ -9,6 +10,10 @@ export default class ProductsListController extends BaseController {
 		for (const product of products) {
 			const article = document.createElement('article');
 			article.innerHTML = ProductsView(product);
+			article.addEventListener('click', (event) => {
+				/* window.location.href = '?next=/product.html'; */
+				window.location.href = `product.html?id=${product.id}`
+			})
 			this.element.appendChild(article);
 		}
 	}
