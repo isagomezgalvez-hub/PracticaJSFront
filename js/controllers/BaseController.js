@@ -10,7 +10,8 @@ export default class BaseController {
 			FINISH_LOADING: 'finishLoading',
 			SUCCESS: 'success',
 			WARNING: 'warning',
-			ERROR: 'error'
+			ERROR: 'error',
+			PRODUCT_DELETED: 'productDeleted'
 		}
 	}
 

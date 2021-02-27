@@ -6,11 +6,14 @@ const TOKEN_KEY = 'token';
 export default {
 
 	getProducts: async function () {
-		const url = `${BASE_URL}/api/anuncios?_expand=user&_sort=id&_order=desc`
+		const url = `${BASE_URL}/api/anuncios?_expand=user&_sort=id&_order=desc`;
+
 		const response = await fetch(url);
 		if (response.ok) {
 			const data = await response.json()
+
 			return data.map(product => {
+				const user = product.user || {};
 				return {
 					image: product.image || null,
 					nombre: product.nombre.replace(/(<([^>]+)>)/gi, ""),
@@ -19,17 +22,28 @@ export default {
 					venta: product.venta,
 					author: product.user.username,
 					id: product.id,
-					date: product.createdAt || product.updatedAt
+					date: product.createdAt || product.updatedAt,
 				}
 			})
 		} else {
-			throw new Error(`HTTP Error: ${response.status}`)
+			throw new Error(`HTTP Error: ${response.status} `)
 		}
 	},
 
 	post: async function (url, postData, json = true) {
+		return await this.request('POST', url, postData, json)
+	},
+
+	delete: async function (url) {
+		return await this.request('DELETE', url, {})
+	},
+	put: async function (url, putData, json = true) {
+		return await this.request('PUT', url, putData, json)
+	},
+
+	request: async function (method, url, postData, json = true) {
 		const config = {
-			method: 'POST',
+			method: method,
 			headers: {},
 			body: null,
 		};
@@ -41,8 +55,9 @@ export default {
 		}
 		const token = await this.getToken();
 		if (token) {
-			config.headers['Authorization'] = `Bearer ${token}`
+			config.headers['Authorization'] = `Bearer ${token} `
 		}
+
 		const response = await fetch(url, config)
 		const data = await response.json()
 		if (response.ok) {
@@ -95,6 +110,7 @@ export default {
 	},
 
 	getProductsDetails: async function (product) {
+		const currentUser = await this.getUser();
 		const queryString = window.location.search;
 		const urlParams = new URLSearchParams(queryString);
 		const id = urlParams.get('id');
@@ -103,19 +119,49 @@ export default {
 
 		const response = await fetch(url);
 		if (response.ok) {
-			const data = await response.json()
+			const data = await response.json();
 			return data.map(product => {
+				const user = product.user || {};
 				return {
 					image: product.image || null,
-					nombre: product.nombre,
+					nombre: product.nombre.replace(/(<([^>]+)>)/gi, ""),
 					precio: product.precio,
 					descripcion: product.descripcion,
 					venta: product.venta,
-					date: product.createdAt || product.updatedAt
+					id: product.id,
+					date: product.createdAt || product.updatedAt,
+					canBeDeleted: currentUser ? currentUser.userId === product.userId : false
 				}
 			})
-		} else {
-			throw new Error(`HTTP Error: ${response.status}`)
+
 		}
+	},
+
+
+
+	getUser: async function () {
+		try {
+			const token = await this.getToken();
+			const tokenPart = token.split('.');
+			if (tokenPart.length !== 3) {
+				return null;
+			}
+			const payload = tokenPart[1]; //cogemos el payload, certificado en token
+			const jsonStr = atob(payload); // descodificamos el base64
+			const { userId, username } = JSON.parse(jsonStr); // parseamos el JSON del token base64
+			return { userId, username };
+		} catch (error) {
+			return null
+		}
+	},
+
+	deleteProduct: async function (product) {
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		const id = urlParams.get('id');
+
+		const url = `${BASE_URL}/api/anuncios/${id}`;
+		return await this.delete(url);
 	}
+
 }

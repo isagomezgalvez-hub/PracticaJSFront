@@ -2,7 +2,7 @@ import BaseController from "./BaseController.js";
 
 import DataService from '../service/DataService.js';
 import { ProductDetails } from "../views.js";
-
+import DeleteButtonController from './DeleteButtonController.js';
 
 export default class ProductController extends BaseController {
 	constructor(element) {
@@ -10,7 +10,13 @@ export default class ProductController extends BaseController {
 	};
 
 	showProductDetails(product) {
+
 		this.element.innerHTML = ProductDetails(product);
+		const deleteButton = this.element.querySelector('button');
+		if (deleteButton) {
+			new DeleteButtonController(deleteButton, product);
+		}
+
 	};
 	async loadProductDetails() {
 		this.publish(this.events.START_LOADING, {});

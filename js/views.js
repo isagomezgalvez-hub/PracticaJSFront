@@ -77,13 +77,16 @@ export const UserSuccess = () => {
 };
 
 export const ProductDetails = (product) => {
+	let deleteButtonHTML = '';
+	console.log(product)
+	if (product[0].canBeDeleted) {
+		deleteButtonHTML = '<button class="button is-danger">Borrar</button>';
+	}
+
 	return `<div class="container is-max-widescreen">
 					<div class="columns">
-						<div class="column">
-							<h4 class="title is-4">Autor@</h4>
-						</div>
 						<div class="column has-text-right">
-							<button class="button is-primary">Editar</button>
+						${deleteButtonHTML}
 						</div>
 					</div>
 					<div class="article-image">
@@ -99,7 +102,7 @@ export const ProductDetails = (product) => {
 					<hr>
 					<div class="columns">
 						<div class="column">
-							<time>${product[0].date}</time>
+							<time>${product.date}</time>
 						</div>
 						<div class="column has-text-right">
 							<span class="icon">
