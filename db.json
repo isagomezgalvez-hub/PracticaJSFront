@@ -1,0 +1,71 @@
+{
+  "anuncios": [
+    {
+      "image": "http://127.0.0.1:8000/file-1614507838546.jpg",
+      "nombre": "Iphone 10G",
+      "tipoAnuncio": "venta",
+      "precio": "700",
+      "descripcion": "",
+      "userId": 1,
+      "updatedAt": "2021-02-28T10:23:58.571Z",
+      "id": 2
+    },
+    {
+      "image": "http://127.0.0.1:8000/file-1614511355601.jpg",
+      "nombre": "Bicicleta Electrica",
+      "tipoAnuncio": "venta",
+      "precio": "500",
+      "descripcion": "Bicicleta como nueva",
+      "userId": 1,
+      "updatedAt": "2021-02-28T11:22:35.623Z",
+      "id": 3
+    },
+    {
+      "image": "http://127.0.0.1:8000/file-1614514538670.jpg",
+      "nombre": "Lámpara de Mesa",
+      "tipoAnuncio": "venta",
+      "precio": "100",
+      "descripcion": "Lámpara de mesa auxiliar",
+      "userId": 1,
+      "updatedAt": "2021-02-28T12:15:38.726Z",
+      "id": 4
+    },
+    {
+      "image": "http://127.0.0.1:8000/file-1614515845172.jpg",
+      "nombre": "Coche",
+      "tipoAnuncio": "venta",
+      "precio": "1000",
+      "descripcion": "",
+      "userId": 1,
+      "updatedAt": "2021-02-28T12:37:25.205Z",
+      "id": 5
+    },
+    {
+      "image": null,
+      "nombre": "Otro producto",
+      "tipoAnuncio": "venta",
+      "precio": "222",
+      "descripcion": "",
+      "userId": 1,
+      "updatedAt": "2021-02-28T12:37:40.919Z",
+      "id": 6
+    }
+  ],
+  "users": [
+    {
+      "username": "esthercrespincruz@gmail.com",
+      "password": "$2b$10$Yg2NMk7S6fyL9vI2WSGm1eyO7UZANw3T2Xerc1Tr2U5dRkk8.799u",
+      "id": 1
+    },
+    {
+      "username": "anagomezgalvez164@hotmail.com",
+      "password": "$2b$10$oc1mQBrGa30CqLw7UykafOmHp06rhWXoOaTgmnHj6WjzgjS/PLBoy",
+      "id": 2
+    },
+    {
+      "username": "isagomezgalvez@gmail.com",
+      "password": "$2b$10$LQceXICS.OHftZPq9X0C4u7vjT8/1NOjtK34jkMil2gVF9xs6UCFG",
+      "id": 3
+    }
+  ]
+}
