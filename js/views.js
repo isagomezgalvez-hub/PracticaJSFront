@@ -107,10 +107,9 @@ export const ProductDetails = (product) => {
 						${deleteButtonHTML}
 						</div>
 					</div>
+					
 					<div class="article-image">
-						<figure class="image is-5by3 has-ratio">
-							<img ${imgHTML}> 
-						</figure>
+					${imgHTML}
 					</div>
 					<div class="columns">
 					<div class="column">
