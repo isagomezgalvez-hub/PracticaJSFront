@@ -23,7 +23,12 @@ export default class ProductController extends BaseController {
 		this.publish(this.events.START_LOADING, {});
 		try {
 			const product = await DataService.getProductsDetails();
-			this.showProductDetails(product);
+			if (product.length === 0) {
+				this.publish(this.events.NO_DATA, {});
+			} else {
+				this.showProductDetails(product);
+			}
+
 		} catch (error) {
 			this.publish(this.events.ERROR, error);
 		} finally {

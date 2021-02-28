@@ -57,17 +57,7 @@ export const ErrorView = (errorMesagge) => {
 		</article>`
 };
 
-export const RemoveProductMesagge = () => {
-	return `<article class="message is-success" >
-			<div class="message-header">
-				<p>Enhorabuena</p>
-				<button class="delete" aria-label="delete"></button>
-			</div>
-			<div class="message-body">
-			¡Producto eliminado con exito!
-			</div>
-		</article>`
-};
+
 
 export const UserSuccess = () => {
 	return `<article class="message is-success">
@@ -81,9 +71,10 @@ export const UserSuccess = () => {
 		</article>`
 };
 
+
+
 export const ProductDetails = (product) => {
 	let deleteButtonHTML = '';
-	console.log(product)
 	if (product[0].canBeDeleted) {
 		deleteButtonHTML = '<button class="button is-danger">Borrar</button>';
 	}
@@ -129,5 +120,26 @@ export const ProductDetails = (product) => {
 						</div>
 					</div>
 				</div>`
+};
+
+export const RemoveProductMesagge = () => {
+	return `<article class="message is-success" >
+			<div class="message-header">
+				<p>Enhorabuena</p>
+				<button class="delete" aria-label="delete"></button>
+			</div>
+			<div class="message-body">
+			¡Producto eliminado con exito!
+			</div>
+		</article>`
+};
+
+export const NoDataView = () => {
+
+	return `<article class="message is-warning">
+  <div class="message-body">
+   Lo sentimos, no tenemos datos para mostrar
+  </div>
+</article>`
 }
 

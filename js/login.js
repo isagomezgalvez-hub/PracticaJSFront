@@ -4,12 +4,12 @@ import LoginFormController from './controllers/LoginFormController.js';
 
 window.addEventListener('DOMContentLoaded', () => {
 	const loader = document.querySelector('.lds-ring');
-	const loadController = new LoaderController(loader);
+	new LoaderController(loader);
 
 	const errorElement = document.querySelector('.global-error')
-	const errorController = new ErrorController(errorElement);
+	new ErrorController(errorElement);
 
 	const formElement = document.querySelector('form')
-	const formController = new LoginFormController(formElement);
+	new LoginFormController(formElement);
 
 })

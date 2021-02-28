@@ -11,9 +11,7 @@ export default class ProductsListController extends BaseController {
 			const article = document.createElement('article');
 			article.innerHTML = ProductsView(product);
 			article.addEventListener('click', (event) => {
-
 				window.location.href = `product.html?id=${product.id}`
-
 			})
 			this.element.appendChild(article);
 		}
@@ -22,7 +20,13 @@ export default class ProductsListController extends BaseController {
 		this.publish(this.events.START_LOADING, {});
 		try {
 			const products = await DataService.getProducts();
-			this.render(products);
+
+			if (products.length === 0) {
+				console.log('No hay productos que mostrar')
+				this.publish(this.events.NO_DATA, {});
+			} else {
+				this.render(products);
+			}
 		} catch (error) {
 			this.publish(this.events.ERROR, error);
 		} finally {

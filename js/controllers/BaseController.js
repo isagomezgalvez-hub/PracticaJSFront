@@ -6,6 +6,7 @@ export default class BaseController {
 		this.element = element;
 		this.pubSub = pubSub;
 		this.events = {
+			NO_DATA: 'noData',
 			START_LOADING: 'startLoading',
 			FINISH_LOADING: 'finishLoading',
 			SUCCESS: 'success',
