@@ -22,7 +22,6 @@ export default class ProductsListController extends BaseController {
 			const products = await DataService.getProducts();
 
 			if (products.length === 0) {
-				console.log('No hay productos que mostrar')
 				this.publish(this.events.NO_DATA, {});
 			} else {
 				this.render(products);

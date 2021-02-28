@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>NodePop</title>
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 </head>
 
 <body>
@@ -14,7 +15,7 @@
 	<nav class="navbar" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="/">
-				<img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+				<img src="http://isagomez.com/wp-content/uploads/2021/02/logoNodepop-logo.svg" width="132" height="28">
 			</a>
 
 			<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -59,9 +60,9 @@
 	<section class="section">
 		<main class="container">
 			<form>
-				<h1 class="title">Nuevo Producto</h1>
+				<h1 class="title">Publica un Artículo</h1>
 				<div class="field">
-					<label class="label">Nombre</label>
+					<label class="label">Nombre<span class="field_required">*</span></label>
 					<div class="control">
 						<input class="input" name="name" type="text" placeholder="Añade un Nombre a tu producto"
 							required>
@@ -69,7 +70,7 @@
 				</div>
 
 				<div class="field">
-					<label class="label">Selecciona el tipo de Anuncio</label>
+					<label class="label">Selecciona el tipo de Anuncio<span class="field_required">*</span></label>
 					<div class="control">
 						<label class="radio">
 							<input type="radio" name="tipo" value="venta" checked required>
@@ -83,12 +84,11 @@
 				</div>
 
 				<div class="field">
-					<label class="label">Precio</label>
+					<label class="label">Precio <span class="field_required">*</span></label>
 					<div class="control">
 						<input name="price" class="input" type="number" placeholder="30€" required>
 					</div>
 				</div>
-
 				<div class="file is-boxed">
 
 					<label class="file-label">
@@ -98,7 +98,7 @@
 								<i class="fas fa-upload"></i>
 							</span>
 							<span class="file-label">
-								Choose a file…
+								Sube una imagen
 							</span>
 						</span>
 					</label>

@@ -79,6 +79,7 @@ export const ProductDetails = (product) => {
 		deleteButtonHTML = '<button class="button is-danger">Borrar</button>';
 	}
 
+
 	return `<div class="container is-max-widescreen">
 					<div class="columns">
 						<div class="column has-text-right">

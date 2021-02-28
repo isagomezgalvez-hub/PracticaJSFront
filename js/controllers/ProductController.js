@@ -15,7 +15,6 @@ export default class ProductController extends BaseController {
 		const deleteButton = this.element.querySelector('button');
 		if (deleteButton) {
 			new DeleteButtonController(deleteButton, product);
-
 		}
 
 	};

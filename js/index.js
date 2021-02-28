@@ -3,7 +3,6 @@ import DataService from './service/DataService.js';
 import ProductsListController from './controllers/ProductsListController.js';
 import ErrorController from './controllers/ErrorController.js';
 
-import { ProductsView } from './views.js';
 import LoaderController from './controllers/LoaderController.js';
 import LoginOrRegisterController from './controllers/LoginOrRegisterController.js';
 import NoDataController from './controllers/NoDataController.js';
