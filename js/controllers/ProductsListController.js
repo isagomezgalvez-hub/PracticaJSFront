@@ -2,7 +2,7 @@ import BaseController from './BaseController.js';
 
 import ProductController from './ProductController.js'
 import DataService from '../service/DataService.js';
-import { ProductDetails, ProductsView } from '../views.js';
+import { ProductsView } from '../views.js';
 
 export default class ProductsListController extends BaseController {
 

@@ -1,6 +1,7 @@
 import LoaderController from './controllers/LoaderController.js';
 import ErrorController from './controllers/ErrorController.js';
 import NoDataController from './controllers/NoDataController.js'
+import LogoutController from './controllers/LogoutController.js'
 import RemoveProductMesaggeController from './controllers/RemoveProductMesaggeController.js'
 import ProductController from './controllers/ProductController.js';
 
@@ -18,6 +19,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	const removeElement = document.querySelector('.global-error')
 	new RemoveProductMesaggeController(errorElement);
+
+	const LogoutElement = document.querySelector('.new-product')
+	new LogoutController(LogoutElement);
 
 	const productElement = document.querySelector('.products-details')
 	const detailsController = new ProductController(productElement)

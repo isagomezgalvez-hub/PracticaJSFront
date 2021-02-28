@@ -6,6 +6,7 @@ import ErrorController from './controllers/ErrorController.js';
 import LoaderController from './controllers/LoaderController.js';
 import LoginOrRegisterController from './controllers/LoginOrRegisterController.js';
 import NoDataController from './controllers/NoDataController.js';
+import LogoutController from './controllers/LogoutController.js';
 
 
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -26,5 +27,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 	const newProductButtons = document.querySelector('.new-product')
 	new LoginOrRegisterController(newProductButtons);
+
+	const LogoutElement = document.querySelector('.new-product')
+	new LogoutController(LogoutElement);
+
 
 })
