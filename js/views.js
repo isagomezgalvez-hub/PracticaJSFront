@@ -2,7 +2,13 @@
 export const ProductsView = (product) => {
 	/* Obtener la imagen */
 	let imgHTML = '';
-	if (product.image) {
+
+	if (product.image === null) {
+		imgHTML = `<figure class="image is-4by3">
+   
+      <img src="https://bulma.io/images/placeholders/128x128.png" alt="Placeholder image">
+    </figure>`
+	} else {
 		imgHTML = `<figure class="image is-4by3">
    
       <img src="${product.image}" alt="Placeholder image">
@@ -74,6 +80,21 @@ export const UserSuccess = () => {
 
 
 export const ProductDetails = (product) => {
+	/* Obtener la imagen */
+	let imgHTML = '';
+
+	if (product[0].image === null) {
+		imgHTML = `<figure class="image is-4by3">
+   
+      <img src="https://bulma.io/images/placeholders/128x128.png" alt="Placeholder image">
+    </figure>`
+	} else {
+		imgHTML = `<figure class="image is-4by3">
+   
+      <img src="${product[0].image}" alt="Placeholder image">
+    </figure>`
+	}
+
 	let deleteButtonHTML = '';
 	if (product[0].canBeDeleted) {
 		deleteButtonHTML = '<button class="button is-danger">Borrar</button>';
@@ -88,7 +109,7 @@ export const ProductDetails = (product) => {
 					</div>
 					<div class="article-image">
 						<figure class="image is-5by3 has-ratio">
-							<img src="${product[0].image}" frameborder="0" allowfullscreen>
+							<img ${imgHTML}> 
 						</figure>
 					</div>
 					<div class="columns">
