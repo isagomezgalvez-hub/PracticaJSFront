@@ -97,7 +97,7 @@ export const ProductDetails = (product) => {
 
 	let deleteButtonHTML = '';
 	if (product[0].canBeDeleted) {
-		deleteButtonHTML = '<button class="button is-danger">Borrar</button>';
+		deleteButtonHTML = '<button id="remove" class="button is-danger">Borrar</button>';
 	}
 
 

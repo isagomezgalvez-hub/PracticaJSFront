@@ -6,7 +6,9 @@ export default class DeleteButtonController extends BaseController {
 
 	constructor(element, product) {
 		super(element);
-		this.element.addEventListener('click', async (event) => {
+		const deleteButton = document.getElementById("remove");
+		if (deleteButton !== null) {
+			deleteButton.addEventListener('click', async (event) => {
 			const deleteConfirmed = confirm('¿Seguro que quieres borrarlo?');
 
 			if (deleteConfirmed) {
@@ -20,5 +22,5 @@ export default class DeleteButtonController extends BaseController {
 			}
 		})
 	}
-
+	}
 }
